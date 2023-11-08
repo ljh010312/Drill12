@@ -46,8 +46,8 @@ class Zombie:
         elif self.x < 800:
             self.dir = 1
         self.x = clamp(800, self.x, 1600)
-        pass
-
+        if self.w <= 0:
+            game_world.remove_object(self)
 
     def draw(self):
         if self.dir < 0:
@@ -69,5 +69,4 @@ class Zombie:
             self.w -= 100
             self.h -= 100
             self.y -= 50
-            if self.w <= 0:
-                game_world.remove_object(self)
+
